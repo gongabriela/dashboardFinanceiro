@@ -1,7 +1,7 @@
 import { salvarDados, buscarDados } from "./modules/services/storage.js";
 import { calcularRendaTotal, calcularDespesaTotal, calcularBalancoTotal } from "./modules/utils/calculations.js";
 import { formatarValor } from "./modules/utils/formatters.js";
-import { atualizarCartoes, renderizarListaTransacoes } from "./modules/dom/dom.js";
+import { atualizarCartoes, renderizarListaTransacoes, atualizarDataCabecalho } from "./modules/dom/dom.js";
 
 const dadosIniciais = buscarDados();
 const inputDescricao = document.getElementById('descricao');
@@ -62,5 +62,6 @@ function removerTransacao(event) {
 }
 
 atualizarDashboard(dadosIniciais);
+atualizarDataCabecalho();
 btnAdicionar.addEventListener('click', processarNovaTransacao);
 listaTransacoes.addEventListener('click', removerTransacao);

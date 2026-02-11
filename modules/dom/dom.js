@@ -77,3 +77,11 @@ function criarBlocoTransacao(transacao) {
 
     return li;
 }
+
+export function atualizarDataCabecalho() {
+    const elementoData = document.querySelector('.calendario');
+    const hoje = new Date();
+    const opcoes = { day: 'numeric', month: 'short', year: 'numeric' };
+    const dataFormatada = hoje.toLocaleDateString('pt-PT', opcoes);
+    elementoData.textContent = dataFormatada; 
+}

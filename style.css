@@ -456,14 +456,21 @@ body {
 
 }
 
-.caixa-icone {
-    width: 24px;
-    height: 24px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--tertiary-color); 
+.btn-lixeira {
+    padding: 4px;
+    background-color: transparent;
+    border: 1px solid var(--cor-azul-ceu);
+    color: var(--cor-azul-ceu);
+    box-shadow: 0 0 8px var(--cor-azul-ceu);
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+.btn-lixeira:hover {
+    color: var(--cor-rosa);
+    border: 1px solid var(--cor-rosa);
+    box-shadow: 0 0 15px var(--cor-rosa);
+    transition: 0.3s;
 }
 
 .real-icon {

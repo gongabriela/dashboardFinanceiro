@@ -33,6 +33,12 @@ function criarBlocoTransacao(transacao) {
     const divInfo = document.createElement('div');
     divInfo.classList.add('info-transacao');
 
+    //span do icone de lixeira
+    const lixeira = document.createElement('button');
+    lixeira.classList.add('btn-lixeira');
+    const iconLixeira = document.createElement('i');
+    iconLixeira.classList.add('fa-solid', 'fa-trash');
+
     //div nome da transacao 
     const divNome = document.createElement('div');
     divNome.classList.add('nome-transacao');
@@ -54,6 +60,8 @@ function criarBlocoTransacao(transacao) {
     divValor.textContent = formatarValor(transacao.valor);
 
     //adicionar divs ao li
+    lixeira.appendChild(iconLixeira);
+    divInfo.appendChild(lixeira);
     divInfo.appendChild(divNome);
     li.appendChild(divInfo);
     li.appendChild(divCategoria);

@@ -1,12 +1,10 @@
-// modules/utils/calculations.js
-
 // Calcular renda total (apenas receitas)
 export function calcularRendaTotal(dados) {
     return dados.reduce((total, transacao) => {
         if (transacao.tipo === "receita") {
             return total + transacao.valor;
         }
-        return total; // Sempre retorna o acumulador para não dar erro na próxima rodada
+        return total;
     }, 0);
 }
 

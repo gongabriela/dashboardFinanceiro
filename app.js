@@ -22,4 +22,17 @@ O que deve acontecer quando a página recarrega?
 */
 
 import { salvarDados, buscarDados } from "./modules/services/storage.js";
+import { calcularRendaTotal, calcularDespesaTotal, calcularBalancoTotal } from "./modules/utils/calculations.js";
+import { formatarValor } from "./modules/utils/formatters.js";
+import { atualizarCartoes } from "./modules/dom/dom.js";
 
+//buscar dados do localStorage
+const dados = buscarDados();
+
+//calcular o valor dos cards e formatr
+const rendaTotal = formatarValor(calcularRendaTotal(dados));
+const despesaTotal = formatarValor(calcularDespesaTotal(dados));
+const balancoTotal = formatarValor(calcularBalancoTotal(dados));
+
+//atualizar os cards
+atualizarCartoes(balancoTotal, rendaTotal, despesaTotal);

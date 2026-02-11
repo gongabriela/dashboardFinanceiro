@@ -20,3 +20,6 @@ Sempre que adicionar uma transação:
 Pergunta:
 O que deve acontecer quando a página recarrega?
 */
+
+import { salvarDados, buscarDados } from "./modules/services/storage.js";
+

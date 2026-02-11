@@ -1,3 +1,5 @@
+import { formatarValor } from "../utils/formatters.js";
+
 export function atualizarCartoes(totalBalanco, totalRenda, totalDespesa) {
     const elementoBalanco = document.getElementById('valor-balanco');
     const elementoRenda = document.getElementById('valor-renda');
@@ -6,4 +8,57 @@ export function atualizarCartoes(totalBalanco, totalRenda, totalDespesa) {
     elementoBalanco.textContent = totalBalanco;
     elementoRenda.textContent = totalRenda;
     elementoDespesa.textContent = totalDespesa;
+}
+
+const listaTransacoes = document.querySelector('.lista-transacoes');
+
+export function renderizarListaTransacoes(dados) {
+    //limpar lista
+    listaTransacoes.innerHTML = "";
+    //forEach elemento de dados
+    dados.forEach(transacao => {
+        //criar bloco html
+        const blocoTransacao = criarBlocoTransacao(transacao);
+        //inserir li no ul (lista transacoes)
+        listaTransacoes.appendChild(blocoTransacao);
+    });
+}
+
+function criarBlocoTransacao(transacao) {
+    //criar li - item da lista transacoes
+    const li = document.createElement('li');
+    li.classList.add('item-transacao');
+
+    //div  info do item
+    const divInfo = document.createElement('div');
+    divInfo.classList.add('info-transacao');
+
+    //div nome da transacao 
+    const divNome = document.createElement('div');
+    divNome.classList.add('nome-transacao');
+    divNome.textContent = transacao.descricao;
+
+    //div categoria da transacao
+    const divCategoria = document.createElement('div');
+    divCategoria.classList.add('categoria-transacao');
+    divCategoria.textContent = transacao.tipo === "receita" ? "Receita" : "Despesa";
+
+    //div data da transacao
+    const divData = document.createElement('div');
+    divData.classList.add('data-transacao');
+    divData.textContent = transacao.data;
+
+    //div valor da transacao
+    const divValor = document.createElement('div');
+    divValor.classList.add('valor-transacao');
+    divValor.textContent = formatarValor(transacao.valor);
+
+    //adicionar divs ao li
+    divInfo.appendChild(divNome);
+    li.appendChild(divInfo);
+    li.appendChild(divCategoria);
+    li.appendChild(divData);
+    li.appendChild(divValor);
+
+    return li;
 }

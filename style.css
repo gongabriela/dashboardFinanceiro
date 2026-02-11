@@ -17,6 +17,9 @@
     /* Texto */
     --cor-texto-principal: #e0def4; /*branco gelo (melhor para leitura) */
     
+    /** Cores para transações */
+    --cor-verde: #50fa7b;
+    --cor-vermelho: #ff5555;
     /* Fontes */
     --fonte-titulo: 'Outfit', sans-serif;
     --fonte-texto: 'Inter', sans-serif;
@@ -422,7 +425,7 @@ body {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr; 
     padding: 10px 20px;
-    color: var(--gray-titles);
+    color: var(--cor-roxo-claro);
     font-size: 11px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -432,8 +435,8 @@ body {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
     align-items: center;
-    background-color: var(--card-background);
-    border: 1px solid var(--card-borders);
+    background-color: var(--cor-fundo-pagina);
+    border: 1px solid var(--cor-borda);
     border-radius: 8px;
     padding: 12px 20px;
     margin-bottom: 12px;
@@ -473,17 +476,13 @@ body {
     transition: 0.3s;
 }
 
-.real-icon {
-    font-size: 14px;   
-}
-
 .nome-transacao {
     color: var(--accent-color);
     font-size: 12px;
     font-weight: 500;
 }
 
-.etiqueta {
+.categoria-transacao {
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 8px;
@@ -492,8 +491,8 @@ body {
     background-color: var(--tertiary-color);
 }
 
-.etiqueta-receita { color: var(--primary-color); }
-.etiqueta-despesa { color: var(--expense-color); }
+.categoria-transacao.receita { color: var(--cor-verde); }
+.categoria-transacao.despesa { color: var(--cor-vermelho) };
 
 .data-transacao {
     color: var(--gray-titles);

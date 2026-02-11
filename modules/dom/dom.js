@@ -36,6 +36,7 @@ function criarBlocoTransacao(transacao) {
     //span do icone de lixeira
     const lixeira = document.createElement('button');
     lixeira.classList.add('btn-lixeira');
+    lixeira.dataset.id = transacao.id;
     const iconLixeira = document.createElement('i');
     iconLixeira.classList.add('fa-solid', 'fa-trash');
 
@@ -47,7 +48,13 @@ function criarBlocoTransacao(transacao) {
     //div categoria da transacao
     const divCategoria = document.createElement('div');
     divCategoria.classList.add('categoria-transacao');
-    divCategoria.textContent = transacao.tipo === "receita" ? "Receita" : "Despesa";
+    if (transacao.tipo === "receita") {
+        divCategoria.classList.add('receita');
+        divCategoria.textContent = "Receita";
+    } else {
+        divCategoria.classList.add('despesa');
+        divCategoria.textContent = "Despesa";
+    }
 
     //div data da transacao
     const divData = document.createElement('div');

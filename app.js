@@ -3,28 +3,12 @@ import { calcularRendaTotal, calcularDespesaTotal, calcularBalancoTotal } from "
 import { formatarValor } from "./modules/utils/formatters.js";
 import { atualizarCartoes, renderizarListaTransacoes } from "./modules/dom/dom.js";
 
-//buscar dados do localStorage
-const dados = buscarDados();
-
-//calcular o valor dos cards e formatr
-const rendaTotal = formatarValor(calcularRendaTotal(dados));
-const despesaTotal = formatarValor(calcularDespesaTotal(dados));
-const balancoTotal = formatarValor(calcularBalancoTotal(dados));
-
-//atualizar os cards
-atualizarCartoes(balancoTotal, rendaTotal, despesaTotal);
-
-//renderizar lista de transações
-renderizarListaTransacoes(dados);
-
-/**
- * processar nova transacao
- */
-
+const dadosIniciais = buscarDados();
 const inputDescricao = document.getElementById('descricao');
 const inputValor = document.getElementById('quantidade');
 const inputTipo = document.getElementById('tipo-transacao');
 const btnAdicionar = document.querySelector('.adiciona-historia');
+const listaTransacoes = document.querySelector('.lista-transacoes');
 
 function criarDadoTransacao() {
 
@@ -39,20 +23,44 @@ function criarDadoTransacao() {
         tipo: tipoSelecionado,
         data: new Date().toLocaleDateString()
     };
+    return novaTransacao;
+}
 
+function atualizarDashboard(dados) {
+    const rendaTotal = formatarValor(calcularRendaTotal(dados));
+    const despesaTotal = formatarValor(calcularDespesaTotal(dados));
+    const balancoTotal = formatarValor(calcularBalancoTotal(dados));
+    atualizarCartoes(balancoTotal, rendaTotal, despesaTotal);
+    renderizarListaTransacoes(dados);
+}
+
+function processarNovaTransacao () {
+    const novaTransacao = criarDadoTransacao();
     const dadosAtuais = buscarDados();
     dadosAtuais.push(novaTransacao);
     salvarDados(dadosAtuais);
 
     inputDescricao.value = '';
     inputValor.value = '';
-    
-    const rendaTotal = formatarValor(calcularRendaTotal(dadosAtuais));
-    const despesaTotal = formatarValor(calcularDespesaTotal(dadosAtuais));
-    const balancoTotal = formatarValor(calcularBalancoTotal(dadosAtuais));
-    atualizarCartoes(balancoTotal, rendaTotal, despesaTotal);
-    renderizarListaTransacoes(dadosAtuais);
+
+    atualizarDashboard(dadosAtuais);
 }
 
-btnAdicionar.addEventListener('click', criarDadoTransacao);
+function removerTransacao(event) {
+    const transacaoClicada = event.target.closest('.btn-lixeira');
+    if (!transacaoClicada) return;
+    const idClicado = Number(transacaoClicada.dataset.id);
+    const dados = buscarDados();
 
+    // o filter deixa passar todo mundo que tiver o id DIFERENTE do que clicamos
+    const dadosAtualizados = dados.filter(transacao => {
+        return transacao.id !== idClicado;
+    });
+
+    salvarDados(dadosAtualizados);
+    atualizarDashboard(dadosAtualizados);
+}
+
+atualizarDashboard(dadosIniciais);
+btnAdicionar.addEventListener('click', processarNovaTransacao);
+listaTransacoes.addEventListener('click', removerTransacao);

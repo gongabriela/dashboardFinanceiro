@@ -67,6 +67,18 @@ h1, h2, h3, h4 {
 
 /* ------------------------------------------------------------------------------------- */
 
+/*padronizar estilo dos cards*/
+.card-padrao {
+    background-color: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px; 
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ------------------------------------------------------------------------------------- */
 
 /* RESET BÁSICO */
 * {
@@ -208,26 +220,6 @@ body {
     align-items: start;
 }
 
-.nova-transacao {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    background-color: var(--cor-fundo-card);
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid var(--cor-borda);
-}
-
-.card {
-    border: 1px solid var(--cor-borda);
-    border-radius: 12px;
-    padding: 24px;
-    background-color: var(--cor-fundo-card);
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
 .titulo-card {
     color: var(--cor-banana);
     font-size: 14px;
@@ -364,17 +356,6 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-}
-
-.historico {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--cor-fundo-card);
-    padding: 24px;
-    border-radius: 12px;
-    border: 1px solid var(--cor-borda);
-    width: 100%;
-
 }
 
 .btn-lixeira {

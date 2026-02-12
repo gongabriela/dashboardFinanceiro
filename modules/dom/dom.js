@@ -35,7 +35,7 @@ function criarBlocoTransacao(transacao) {
 
     //span do icone de lixeira
     const lixeira = document.createElement('button');
-    lixeira.classList.add('btn-lixeira');
+    lixeira.classList.add('btn-lixeira', 'estilo-neon');
     lixeira.dataset.id = transacao.id;
     const iconLixeira = document.createElement('i');
     iconLixeira.classList.add('fa-solid', 'fa-trash');

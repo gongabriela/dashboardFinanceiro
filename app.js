@@ -2,6 +2,7 @@ import { salvarDados, buscarDados } from "./modules/services/storage.js";
 import { calcularRendaTotal, calcularDespesaTotal, calcularBalancoTotal } from "./modules/utils/calculations.js";
 import { formatarValor } from "./modules/utils/formatters.js";
 import { atualizarCartoes, renderizarListaTransacoes, atualizarDataCabecalho } from "./modules/dom/dom.js";
+import { validarTransacao } from "./modules/utils/validations.js";
 
 const dadosIniciais = buscarDados();
 const inputDescricao = document.getElementById('descricao');
@@ -15,7 +16,9 @@ function criarDadoTransacao() {
     const descricaoDigitada = inputDescricao.value;
     const valorDigitado = inputValor.value;
     const tipoSelecionado = inputTipo.value;
-    
+
+    if (!validarTransacao(descricaoDigitada, valorDigitado)) {return null; }
+
     const novaTransacao = {
         id: Date.now(),
         descricao: descricaoDigitada,
@@ -23,6 +26,7 @@ function criarDadoTransacao() {
         tipo: tipoSelecionado,
         data: new Date().toLocaleDateString()
     };
+    
     return novaTransacao;
 }
 
@@ -36,6 +40,7 @@ function atualizarDashboard(dados) {
 
 function processarNovaTransacao () {
     const novaTransacao = criarDadoTransacao();
+    if (!novaTransacao) { return; }
     const dadosAtuais = buscarDados();
     dadosAtuais.push(novaTransacao);
     salvarDados(dadosAtuais);

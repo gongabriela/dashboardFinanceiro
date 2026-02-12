@@ -296,29 +296,6 @@ body {
     font-weight: bold;
 }
 
-.nova-transacao-icon {
-    color: var(--cor-azul-ceu);
-    background-color: transparent;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid 1px var(--cor-azul-ceu);
-    box-shadow: 0 0 8px var(--cor-azul-ceu);
-    border-radius: 50%;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.nova-transacao-icon:hover {
-    background-color: var(--cor-rosa);
-    color: var(--cor-fundo-card);
-    border: solid 1px var(--cor-rosa);
-    box-shadow: 0 0 15px var(--cor-rosa);
-    transition: 0.3s;
-}
-
 .form-container {
     width: 100%;
     padding: 8px;

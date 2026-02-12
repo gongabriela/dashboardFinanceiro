@@ -69,28 +69,23 @@ body {
 }
 
 /* ========================= */
-/* DEFININDO CADA ÁREA */
+/* DEFININDO CADA ÁREA       */
 /* ========================= */
 
 .sidebar {
     grid-area: sidebar;
     background-color: var(--cor-fundo-card);
-    color: white;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 32px;
 }
 
-.logo {
+.logo, .financas {
     font-size: 18px;
     font-weight: bold;
     color: var(--cor-rosa);
     font-family: cursive, sans-serif;
-}
-
-.financas {
-    color: var(--cor-rosa);    
 }
 
 .lista-de-servicos {
@@ -101,7 +96,6 @@ body {
     margin: 0;
 }
 
-/* 2. O Item da Lista (Flexbox para alinhar ícone e texto) */
 .menu-itens {
     list-style-type: none;
     display: flex;
@@ -115,7 +109,6 @@ body {
     transition: 0.3s;
 }
 
-/* 3. Estilo base dos ícones e links (Inativos) */
 .menu-itens i {
     color: var(--cor-azul-ceu);
     font-size: 18px;
@@ -210,13 +203,6 @@ body {
     align-items: center; 
 }
 
-/* .transacoes, .cards-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-} */
-
 .cards-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -265,22 +251,14 @@ body {
     margin-top: 4px;
 }
 
-.positivo {
-    color: var(--primary-color);
-}
-
-.negativo {
-    color: var(--expense-color);
-}
-
 .informacao {
-    color: var(--primary-color);
+    color: var(--cor-texto-principal);
     font-size: 12px;
     margin-top: 8px;
 }
 
 .expense-color {
-    color: var(--expense-color);
+    color: var(--cor-vermelho);
 }
 
 .titulo-nova-transacao-container {
@@ -379,22 +357,6 @@ body {
     font-weight: 600;
 }
 
-.titulo-historico-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;    
-}
-
-.icons-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;   
-}
-
 .sub-titulo-historico {
     color: var(--cor-banana);
     font-size: 14px;
@@ -469,14 +431,13 @@ body {
     font-size: 8px;
     font-weight: bold;
     display: inline-block;
-    background-color: var(--tertiary-color);
 }
 
 .categoria-transacao.receita { color: var(--cor-verde); }
 .categoria-transacao.despesa, .erro-descricao, .erro-quantidade { color: var(--cor-vermelho); }
 
 .data-transacao {
-    color: var(--gray-titles);
+    color: var(--cor-texto-principal);
     font-size: 12px;
 }
 

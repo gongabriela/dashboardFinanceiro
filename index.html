@@ -31,7 +31,7 @@
             <p class="subtitle">Bem vindo de volta, aqui está o que acontece com o seu dinheiro</p>
         </div>
         <div class="header-actions">
-            <div class="calendario">Jan 1- Jan 31, 2026</div>
+            <div class="calendario"></div>
             <button class="exportar">Exportar</button>
         </div>
     </header>
@@ -66,11 +66,13 @@
                         <form action="" class="receitas"></form>
                         <label for="descricao">Descrição</label>
                         <input type="text" id="descricao" placeholder="ex. Renda mensal">
+                        <span class="erro-descricao"></span>
                     </div>
                     <div class="qtd-tipo-transacao-container">
                         <div class="qtd-container">
                             <label for="quantidade">Valor</label>
                             <input type="number" id="quantidade" placeholder="ex. 1000">
+                            <span class="erro-quantidade"></span>
                         </div>
                         <div class="tipo-transacao-container">
                             <label for="tipo-transacao">Tipo</label>

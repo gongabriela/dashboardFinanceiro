@@ -463,7 +463,7 @@ body {
     font-weight: 500;
 }
 
-.categoria-transacao {
+.categoria-transacao, .erro-descricao, .erro-quantidade {
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 8px;
@@ -473,7 +473,7 @@ body {
 }
 
 .categoria-transacao.receita { color: var(--cor-verde); }
-.categoria-transacao.despesa { color: var(--cor-vermelho); }
+.categoria-transacao.despesa, .erro-descricao, .erro-quantidade { color: var(--cor-vermelho); }
 
 .data-transacao {
     color: var(--gray-titles);

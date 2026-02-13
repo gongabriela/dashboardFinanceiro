@@ -211,6 +211,7 @@ input[type="date"] {
 
 .categoria-transacao, .erro-descricao, .erro-quantidade, .erro-data {
     display: inline-block;
+    font-size: 12px;
 }
 
 .categoria-transacao.receita { color: var(--cor-verde); }

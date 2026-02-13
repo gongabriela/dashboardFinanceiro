@@ -8,15 +8,9 @@
             "main"
             "footer";
     }
-
-    main {
-        grid-area: main;
-    }
-
     header {
         gap: 10px;
     }
-
     .titulo-container {
         display: flex;
         flex-direction: column;
@@ -24,39 +18,26 @@
         text-align: center;
         gap: 10px;
     }
-
     .header-actions {
         flex-direction: column;
         gap: 10px;
     }
-
-    .sidebar {
-        grid-area: sidebar;
-    }
-    
     .cards-container {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto; 
     }
-
     .historico-transacoes {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
     }
-
     .cabecalho-tabela {
         display: none;
     }
-    
     .info-transacao {
         display: flex;
         flex-direction: row;
         gap: 20px;
         justify-content: left;
-    }
-
-    .nome-transacao {
-        text-wrap: wrap;
     }
     .item-transacao {
         grid-template-columns: 1fr; 
@@ -66,5 +47,23 @@
     }
     .valor-transacao {
         text-align: left;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    main {
+        padding: 20px;
+    }
+    .cards-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .historico-transacoes {
+        grid-template-columns: 1fr;      
+        grid-template-rows: auto auto;   
+        gap: 32px;
+    }
+    .valor-transacao {
+        white-space: normal; 
+        word-break: break-all; /*quebra o valor pra linha de baixo*/
     }
 }

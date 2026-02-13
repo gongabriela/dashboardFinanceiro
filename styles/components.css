@@ -39,7 +39,7 @@ Por que: É aqui que vive o design dos elementos.s
     background-color: var(--cor-fundo-card);
     border: 1px solid var(--cor-borda);
     border-radius: 12px; 
-    padding: 24px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -176,42 +176,36 @@ Por que: É aqui que vive o design dos elementos.s
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr; 
     align-items: center;
+    padding: 10px 20px;
+    font-size: 10px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+
+
 }
 
 .cabecalho-tabela {
-    padding: 10px 20px;
     color: var(--cor-roxo-claro);
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 1px;
 }
 
 .item-transacao {
     background-color: var(--cor-fundo-pagina);
     border: 1px solid var(--cor-borda);
-    border-radius: 8px;
-    padding: 12px 20px;
-    margin-bottom: 12px;
 }
 
 .info-transacao {
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: left;
+    gap: 5px;
 }
 
 .nome-transacao {
     color: var(--cor-texto-principal); /* Corrigido de --accent-color */
-    font-size: 12px;
-    font-weight: 500;
+    word-break: break-all;
 }
 
-/* Tags de Categoria e Erro */
 .categoria-transacao, .erro-descricao, .erro-quantidade {
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 8px;
-    font-weight: bold;
     display: inline-block;
 }
 
@@ -221,19 +215,18 @@ Por que: É aqui que vive o design dos elementos.s
 
 .data-transacao {
     color: var(--cor-roxo-claro);
-    font-size: 12px;
 }
 
 .valor-transacao {
     font-weight: bold;
     text-align: right;
-    font-size: 12px;
     color: var(--cor-texto-principal);
+    white-space: normal; 
+    word-break: break-all;
 }
 
 .rodape-tabela {
     text-align: center;
-    margin-top: 20px;
 }
 
 .link-extrato {

@@ -7,8 +7,8 @@ export function validarTransacao(descricao, valor) {
         erroDescricao.textContent = 'A descrição não pode estar vazia.';
         return false;
     }
-    else if (descricao.length > 29) {
-        erroDescricao.textContent = 'A descrição deve conter no máximo 29 caracteres.';
+    else if (descricao.length > 25) {
+        erroDescricao.textContent = 'A descrição deve conter no máximo 25 caracteres.';
         return false;
     }
     erroDescricao.textContent = '';

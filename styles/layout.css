@@ -103,6 +103,9 @@ body {
     align-items: start;
 }
 
+.table-container {
+    padding: 0;
+}
 /* FOOTER */
 .footer {
     grid-area: footer;

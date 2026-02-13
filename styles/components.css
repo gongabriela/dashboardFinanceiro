@@ -1,26 +1,15 @@
-/*
-O que vai aqui: Os pedaços "reutilizáveis" da interface.
-
-Classes: .card-padrao (estrutura), .estilo-neon, 
-.form-container (e seus inputs), 
-.tabela-container (e todas as regras da tabela).
-
-Por que: É aqui que vive o design dos elementos.s
-*/
-
-/* --- CLASSE UTILITÁRIA: ESTILO NEON --- */
 .estilo-neon {
     background-color: transparent;
     color: var(--cor-azul-ceu);
     border: 1px solid var(--cor-azul-ceu);
     box-shadow: 0 0 8px var(--cor-azul-ceu);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
     text-decoration: none; 
 }
 
-.estilo-neon:hover,
-.estilo-neon.ativo {
+.estilo-neon.ativo,
+.estilo-neon:active {
     background-color: var(--cor-rosa);
     color: var(--cor-fundo-card); 
     border-color: var(--cor-rosa);
@@ -34,6 +23,18 @@ Por que: É aqui que vive o design dos elementos.s
     transition: inherit;
 }
 
+@media (hover: hover) {
+    .estilo-neon:hover {
+        background-color: var(--cor-rosa);
+        color: var(--cor-fundo-card); 
+        border-color: var(--cor-rosa);
+        box-shadow: 0 0 15px var(--cor-rosa);
+    }
+}
+
+.estilo-neon:active {
+    transition: 0.1s;
+}
 /* --- CLASSE UTILITÁRIA: CARD PADRÃO --- */
 .card-padrao {
     background-color: var(--cor-fundo-card);

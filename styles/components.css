@@ -1,0 +1,246 @@
+/*
+O que vai aqui: Os pedaços "reutilizáveis" da interface.
+
+Classes: .card-padrao (estrutura), .estilo-neon, 
+.form-container (e seus inputs), 
+.tabela-container (e todas as regras da tabela).
+
+Por que: É aqui que vive o design dos elementos.s
+*/
+
+/* --- CLASSE UTILITÁRIA: ESTILO NEON --- */
+.estilo-neon {
+    background-color: transparent;
+    color: var(--cor-azul-ceu);
+    border: 1px solid var(--cor-azul-ceu);
+    box-shadow: 0 0 8px var(--cor-azul-ceu);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none; 
+}
+
+.estilo-neon:hover,
+.estilo-neon.ativo {
+    background-color: var(--cor-rosa);
+    color: var(--cor-fundo-card); 
+    border-color: var(--cor-rosa);
+    box-shadow: 0 0 15px var(--cor-rosa);
+}
+
+.estilo-neon i,
+.estilo-neon a {
+    color: inherit; 
+    text-decoration: none;
+    transition: inherit;
+}
+
+/* --- CLASSE UTILITÁRIA: CARD PADRÃO --- */
+.card-padrao {
+    background-color: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px; 
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* COMPONENTES ESPECÍFICOS */
+
+/* Menu Itens */
+.menu-itens {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+}
+
+/* Calendário */
+.calendario { 
+    color: var(--cor-rosa);
+    font-size: 12px;
+    padding: 8px 16px;
+    border: 1px solid var(--cor-rosa);
+    border-radius: 5px;
+}
+
+/* Botões */
+.exportar, .adiciona-historia {
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.adiciona-historia {
+    margin-top: 12px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.btn-lixeira {
+    padding: 4px;
+    border-radius: 10%;
+    display: inline-flex;
+}
+
+/* Tipografia de Cards */
+.titulo-card, .titulo-nova-transacao, .sub-titulo-historico {
+    color: var(--cor-banana);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.sub-titulo-historico {
+    text-align: center;
+}
+
+.valor {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+.informacao {
+    color: var(--cor-texto-principal);
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.expense-color {
+    color: var(--cor-vermelho);
+}
+
+/* Formulário */
+.form-container {
+    width: 100%;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-container label {
+    color: var(--cor-roxo-claro);
+    font-size: 12px;
+}
+
+.form-container input, .form-container select {
+    padding: 8px;
+    border: 1px solid var(--cor-azul-ceu);
+    border-radius: 4px;
+    background-color: transparent;
+    color: var(--cor-texto-principal);
+    width: 100%; /* Garante que ocupem o espaço */
+}
+
+.form-container input:focus, .form-container select:focus {
+    outline: none;
+    border-color: var(--cor-rosa);
+    box-shadow: 0 0 8px var(--cor-rosa);
+    transition: 0.3s;
+}
+
+/* Grupos do Form */
+.description-form, 
+.qtd-container, 
+.tipo-transacao-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.qtd-tipo-transacao-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.qtd-container, .tipo-transacao-container {
+    flex: 1;
+}
+
+#tipo-transacao option {
+    background-color: var(--cor-fundo-card);
+    color: var(--cor-azul-ceu);
+}
+
+/* Tabela de Transações */
+.cabecalho-tabela, .item-transacao {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr; 
+    align-items: center;
+}
+
+.cabecalho-tabela {
+    padding: 10px 20px;
+    color: var(--cor-roxo-claro);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.item-transacao {
+    background-color: var(--cor-fundo-pagina);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin-bottom: 12px;
+}
+
+.info-transacao {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nome-transacao {
+    color: var(--cor-texto-principal); /* Corrigido de --accent-color */
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Tags de Categoria e Erro */
+.categoria-transacao, .erro-descricao, .erro-quantidade {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 8px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.categoria-transacao.receita { color: var(--cor-verde); }
+.categoria-transacao.despesa { color: var(--cor-vermelho); }
+.erro-descricao, .erro-quantidade { color: var(--cor-vermelho); }
+
+.data-transacao {
+    color: var(--cor-roxo-claro);
+    font-size: 12px;
+}
+
+.valor-transacao {
+    font-weight: bold;
+    text-align: right;
+    font-size: 12px;
+    color: var(--cor-texto-principal);
+}
+
+.rodape-tabela {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.link-extrato {
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px;
+    display: inline-block;
+}

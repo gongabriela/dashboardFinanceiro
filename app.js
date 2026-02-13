@@ -8,6 +8,7 @@ const dadosIniciais = buscarDados();
 const inputDescricao = document.getElementById('descricao');
 const inputValor = document.getElementById('quantidade');
 const inputTipo = document.getElementById('tipo-transacao');
+const inputData = document.getElementById('data');
 const btnAdicionar = document.querySelector('.adiciona-historia');
 const listaTransacoes = document.querySelector('.lista-transacoes');
 
@@ -16,15 +17,16 @@ function criarDadoTransacao() {
     const descricaoDigitada = inputDescricao.value;
     const valorDigitado = inputValor.value;
     const tipoSelecionado = inputTipo.value;
-
-    if (!validarTransacao(descricaoDigitada, valorDigitado)) {return null; }
+    const dataSelecionada = inputData.value;
+    
+    if (!validarTransacao(descricaoDigitada, valorDigitado, dataSelecionada)) {return null; }
 
     const novaTransacao = {
         id: Date.now(),
         descricao: descricaoDigitada,
         valor: parseFloat(valorDigitado),
         tipo: tipoSelecionado,
-        data: new Date().toLocaleDateString()
+        data: new Date(dataSelecionada).toLocaleDateString()
     };
     
     return novaTransacao;

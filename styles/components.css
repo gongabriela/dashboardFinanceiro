@@ -171,6 +171,9 @@ Por que: É aqui que vive o design dos elementos.s
     color: var(--cor-azul-ceu);
 }
 
+input[type="date"] {
+    color-scheme: dark;
+}
 /* Tabela de Transações */
 .cabecalho-tabela, .item-transacao {
     display: grid;
@@ -201,17 +204,17 @@ Por que: É aqui que vive o design dos elementos.s
 }
 
 .nome-transacao {
-    color: var(--cor-texto-principal); /* Corrigido de --accent-color */
+    color: var(--cor-texto-principal);
     word-break: break-all;
 }
 
-.categoria-transacao, .erro-descricao, .erro-quantidade {
+.categoria-transacao, .erro-descricao, .erro-quantidade, .erro-data {
     display: inline-block;
 }
 
 .categoria-transacao.receita { color: var(--cor-verde); }
 .categoria-transacao.despesa { color: var(--cor-vermelho); }
-.erro-descricao, .erro-quantidade { color: var(--cor-vermelho); }
+.erro-descricao, .erro-quantidade, .erro-data { color: var(--cor-vermelho); }
 
 .data-transacao {
     color: var(--cor-roxo-claro);

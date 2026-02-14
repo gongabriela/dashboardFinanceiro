@@ -37,7 +37,8 @@ function atualizarDashboard(dados) {
     const despesaTotal = formatarValor(calcularDespesaTotal(dados));
     const balancoTotal = formatarValor(calcularBalancoTotal(dados));
     atualizarCartoes(balancoTotal, rendaTotal, despesaTotal);
-    renderizarListaTransacoes(dados);
+    const dadosUltimosSeteDias = filtrarUltimosSeteDias(dados);
+    renderizarListaTransacoes(dadosUltimosSeteDias);
 }
 
 function processarNovaTransacao () {
@@ -68,7 +69,22 @@ function removerTransacao(event) {
     atualizarDashboard(dadosAtualizados);
 }
 
+function filtrarUltimosSeteDias(dados) {
+    const hoje = new Date();
+    const seteDiasAtras = new Date();
+    seteDiasAtras.setDate(hoje.getDate() - 7);
+
+    return dados.filter(transacao => {
+        const dataTransacao = new Date(transacao.data);
+        return dataTransacao >= seteDiasAtras && dataTransacao <= hoje;
+    });
+}
+
+
 atualizarDashboard(dadosIniciais);
 atualizarDataCabecalho();
 btnAdicionar.addEventListener('click', processarNovaTransacao);
 listaTransacoes.addEventListener('click', removerTransacao);
+
+//na hora de renderizar, por um filter e mostrar 
+// so os ultimos 7 dias

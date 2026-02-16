@@ -60,7 +60,6 @@ function removerTransacao(event) {
     const idClicado = Number(transacaoClicada.dataset.id);
     const dados = buscarDados();
 
-    // o filter deixa passar todo mundo que tiver o id DIFERENTE do que clicamos
     const dadosAtualizados = dados.filter(transacao => {
         return transacao.id !== idClicado;
     });
@@ -71,11 +70,17 @@ function removerTransacao(event) {
 
 function filtrarUltimosSeteDias(dados) {
     const hoje = new Date();
+    hoje.setHours(0, 0, 0, 0);
+
     const seteDiasAtras = new Date();
     seteDiasAtras.setDate(hoje.getDate() - 7);
+    seteDiasAtras.setHours(0, 0, 0, 0);
 
     return dados.filter(transacao => {
-        const dataTransacao = new Date(transacao.data);
+        const [dia, mes, ano] = transacao.data.split('/');
+        const dataTransacao = new Date(ano, mes - 1, dia);
+        dataTransacao.setHours(0, 0, 0, 0);
+        
         return dataTransacao >= seteDiasAtras && dataTransacao <= hoje;
     });
 }
@@ -85,6 +90,3 @@ atualizarDashboard(dadosIniciais);
 atualizarDataCabecalho();
 btnAdicionar.addEventListener('click', processarNovaTransacao);
 listaTransacoes.addEventListener('click', removerTransacao);
-
-//na hora de renderizar, por um filter e mostrar 
-// so os ultimos 7 dias
